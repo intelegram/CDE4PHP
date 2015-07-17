@@ -1,0 +1,16 @@
+{
+    "context": [
+        {
+            "contextName": "default",
+            "contextType": "data",
+            "propertys": [
+                {"name": "driver","value": "pdo_mysql"},
+                {"name": "host","value": "127.0.0.1"},
+                {"name": "port","value": "3306"},
+                {"name": "database","value": "testdb"},
+                {"name": "user","value": "root"},
+                {"name": "password","value": "00000"}
+            ]
+        }
+    ]
+}
