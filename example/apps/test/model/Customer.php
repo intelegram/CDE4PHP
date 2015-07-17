@@ -1,38 +1,52 @@
 <?php
-namespace apps\loginx\model;
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
+namespace apps\test\model;
+
 
 /**
- * Description of newPHPClass
- *
- * @author loginx
+ * @Entity
+ * @Table(name="av_customer")
  */
 class Customer {
-
+    
+    
+    /**
+     * @Id
+     * @GeneratedValue
+     * @Column(type="integer", length=11, name="cus_id") 
+     */
+    public $id;
+    
+    /** @Column(type="string", length=255, name="cus_name") */
     public $name;
-    public $surname;
-
-    function fullName(){
-        return $this->name."::".$this->surname;
+    
+    /** @Column(type="string", length=255, name="cus_address") */
+    public $address;
+   
+    function getId() {
+        return $this->id;
     }
+
     function getName() {
         return $this->name;
     }
 
-    function getSurname() {
-        return $this->surname;
+    function getAddress() {
+        return $this->address;
+    }
+
+    function setId($id) {
+        $this->id = $id;
     }
 
     function setName($name) {
         $this->name = $name;
     }
 
-    function setSurname($surname) {
-        $this->surname = $surname;
+    function setAddress($address) {
+        $this->address = $address;
     }
+
+
 
 }

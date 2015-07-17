@@ -1,17 +1,10 @@
 <?php
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-namespace apps\loginx\interfaces;
+namespace apps\test\interfaces;
 
 
 /**
  * @name HelloService
- * @uri /testx
+ * @uri /hello
  * @description ทดสอบ
  */
 interface IHelloService {
@@ -19,47 +12,93 @@ interface IHelloService {
     /**
      * @name hello
      * @uri /hello
-     * @param String name  Description 
-     * @return String hello Description
-     * @description xxxxx
+     * @param String name 
+     * @return String hello
+     * @description hello(name)
      */ 
     public function hello($name);
-    
-     /**
-     * @name test
-     * @uri /view
-     * @param String name  Description 
-     * @return html test Description
-     * @description xxxxx
-     */ 
-    public function test($name);
-    
-    
+        
     /**
      * @name add
      * @uri /add
-     * @param int x Description
-     * @param int y Description
-     * @return int add Description
-     * @description xxxx
+     * @param int x
+     * @param int y
+     * @return int add
+     * @description add(x,y)
      */
     public function add($x,$y);
     
     
+     /**
+     * @name customers
+     * @uri /customers
+     * @return List<Customer> customers
+     * @description List Customers(JSON)
+     * @sitemap true
+     */ 
+    public function customers(); 
+    
+    
     /**
-     * @name dogs
-     * @uri /dogs
-     * @return int dogs Description
-     * @description xxxx
-     */
-    public function dogs();
+     * @name addCustomer
+     * @uri /cus/save
+     * @param String name
+     * @param String address
+     * @return boolean result
+     * @description Add Customer
+     */ 
+    public function addCustomer($name,$address); 
+    
+    /**
+     * @name updateCustomer
+     * @uri /cus/update
+     * @param String id
+     * @param String name
+     * @return boolean result
+     * @description Update Customer
+     */ 
+    public function updateCustomer($id,$name); 
+    
     
      /**
-     * @name save
-     * @uri /dogs/save
-     * @param apps\loginx\entity\Humman dog Description
-     * @return int dogs Description
-     * @description xxxx
-     */
-    public function save($dog);
+     * @name delCustomer
+     * @uri /cus/del
+     * @param int id
+     * @return boolean result
+     * @description Delete Customer
+     */ 
+    public function delCustomer($id); 
+    
+    
+    /**
+     * @name view
+     * @uri /view/hello
+     * @description Hello API
+     * @sitemap true
+     */ 
+    public function viewHello(); 
+    
+    /**
+     * @name view
+     * @uri /view
+     * @description Customer List
+     * @sitemap true
+     */ 
+    public function view(); 
+    
+     /**
+     * @name viewadd
+     * @uri /view/add
+     * @description Add Customer
+     * @sitemap true
+     */ 
+    public function viewAdd(); 
+    
+     /**
+     * @name viewedit
+     * @uri /view/edit
+     * @param String id
+     * @description Edit Customer
+     */ 
+    public function viewEdit($id); 
 }

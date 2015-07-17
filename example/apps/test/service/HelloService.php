@@ -1,63 +1,109 @@
 <?php
-namespace apps\loginx\service;
+
+namespace apps\test\service;
+
 use th\co\bpg\cde\core\CServiceBase;
-use apps\loginx\interfaces\IHelloService;
 use th\co\bpg\cde\collection\CJView;
 use th\co\bpg\cde\collection\CJViewType;
+use th\co\bpg\cde\data\CDataContext;
+use apps\test\interfaces\IHelloService;
+use apps\test\model\Customer;
 
-use apps\loginx\entity\Humman;
-use apps\loginx\entity\Dog;
+class HelloService extends CServiceBase implements IHelloService {
 
-class HelloService  extends CServiceBase implements IHelloService{
-    
-    public function hello($name) {
-        return "Hello : " .$name;
+    public $datacontext;
+
+    function __construct() {
+        $this->datacontext = new CDataContext();
     }
 
-    public function test($name) {
-        //$_G
-       // $this->getApplication()->configs->get("about");
-       // $this->getCurrentUser()->
-        $view=new CJView("test",CJViewType::HTML_VIEW_ENGINE);
-        $view->name=$name;
-        $view->surname="chanudom";
-        
-        $view->datas=array("aaa","bbb","ccc");
-        
-        $datas[]=array();
-        for($i=0;$i<10;$i++){
-            $cus=new \apps\loginx\model\Customer();
-            $cus->setName("ccc".$i);
-             $cus->setSurname("xxxx".$i);
-             $datas[]=$cus;
-        }
-       // $this->getResponse()->add("name","socmhit");
-         $this->getResponse()->add("surname","chanudom");
-        $view->cuss=$datas;
-        return $view;
+    public function hello($name) {
+        return "Hello : " . $name;
     }
 
     public function add($x, $y) {
-        return $x+$y;
+        return $x + $y;
     }
 
-    public function dogs() {
-       $h=new Humman();
-       $h->setName("somchit");
-       $h->setSurname("chanudom");
-       for($i=0;$i<2;$i++){
-           $d=new Dog();
-           $d->setName("dog-".$i);
-           $h->dogs[]=$d;
-       }
-       $h->setCountDog(2);
-       return $h;
+ public function getCusById($id) {
+       $filter=new Customer();
+        $filter->setId($id);
+        return $this->datacontext->getObject($filter)[0];
     }
 
-    public function save($dog) {
-        //print_r($dog);
-        
-        return $dog;
+    public function customers() {
+
+        //#1
+        //return $this->datacontext->getObject(new Customer());
+        //#2
+        //$sql="select p from apps\\pongpanot\\entity\\Customer p";
+        //return $this->datacontext->getObject($sql);
+        //#3
+        //$filter=new Customer();
+        //$filter->setId(2);
+        //return $this->datacontext->getObject($filter);
+        //#4
+        //$sql="select p.name from apps\\pongpanot\\entity\\Customer p where p.id=:id";
+        //return $this->datacontext->getObject($sql,array("id"=>1));
+        //#5
+        return $this->datacontext->getObject(new Customer(), null);
+    }
+    
+    public function addCustomer($name,$address) {
+        $cus = new Customer();
+        $cus->setName($name);
+        $cus->setAddress($address);
+        if($this->datacontext->saveObject($cus)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function updateCustomer($id,$name) {
+        $cus = new Customer();
+        $cus->setId($id);
+        $cus->setName($name);
+        if($this->datacontext->updateObject($cus)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public function delCustomer($id) {
+        $cus = new Customer();
+        $cus->setId(intval($id));
+        if($this->datacontext->removeObject($cus)){
+            
+            return true;
+        }else{
+            echo $this->datacontext->getLastMessage();
+            return false;
+        }
+    }
+    
+    public function view() {
+        $view = new CJView("list", CJViewType::HTML_VIEW_ENGINE);
+        $view->cuss = $this->customers();
+        return $view;
+    }
+    
+     public function viewAdd() {
+        $view = new CJView("add", CJViewType::HTML_VIEW_ENGINE);
+        return $view;
+    }
+    
+     public function viewEdit($id) {
+        $view = new CJView("edit", CJViewType::HTML_VIEW_ENGINE);
+        $view->cus = $this->getCusById($id);
+        return $view;
+    }
+
+    public function viewHello() {
+        $view = new CJView("hello", CJViewType::HTML_VIEW_ENGINE);
+        return $view; 
     }
 
 }
