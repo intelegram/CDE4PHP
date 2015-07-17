@@ -7,11 +7,10 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Simple CDE Application</title>
     </head>
     <body>
-        <?php
-        // put your code here
-        ?>
+        <h4>Welcome to CDE Application</h4>
+        <a href="api/test/hello/view">simple apps</a>
     </body>
 </html>
