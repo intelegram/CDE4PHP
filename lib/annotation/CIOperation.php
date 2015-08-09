@@ -7,6 +7,8 @@ namespace th\co\bpg\cde\annotation;
  *@param type name Description
  *@description xxxx
  *@return type name Description
+ *@authen true|false
+ *@resource *
  */
 class CIOperation{
     public $name;
@@ -16,6 +18,8 @@ class CIOperation{
     public $returnType;
     public $returnDesc;
     public $description;
-    public $sitemap;
+    public $sitemap=false;
+    public $authen=false;
+    public $resource="*";
 }
 ?>

@@ -13,9 +13,12 @@ class CJRoute {
     public $operationDesc;
     public $sitemap;
 
-    public $parametes;
+    public $parameters;
     public $returnName;
     public $returnType;
     public $returnDesc;
+    
+    public $authen;
+    public $resource;
 }
 ?>

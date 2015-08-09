@@ -15,8 +15,11 @@ interface IHelloService {
      * @param String name 
      * @return String hello
      * @description hello(name)
+     * @authen true
      */ 
     public function hello($name);
+    
+    
         
     /**
      * @name add

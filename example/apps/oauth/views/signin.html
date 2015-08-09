@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Login</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form method="post" action="{{_context_path}}/api/oauth/authen/authorization">
+            <input type="hidden" name="code" value="{{code}}" />
+            <table>
+                <tr>
+                    <td>User</td>
+                    <td> <input name="username" value="{{username}}" /></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><input name="password"  value="{{password}}" /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                         <input type="submit" value="login">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

@@ -12,6 +12,7 @@
         "isoft/mssql-bundle": "master-dev",
         "mustache/mustache": "~2.5",
         "apache/log4php": "2.3.0",
+        "firebase/php-jwt": "v3.0.0",
         "bpg/cde":"3.5.0.x-dev"
     }
 }

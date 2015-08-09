@@ -54,4 +54,12 @@ abstract class CServiceBase extends CServiceBaseImpl implements CIServiceBase {
         parent::uploadFile($Option, $dirname, $filename, $userfile);
     }
 
+    
+    public function setContentDisposition($disposition) {
+        parent::setContentDisposition($disposition);
+    }
+
+    public function getContentDisposition() {
+        parent::getContentDisposition();
+    }
 }

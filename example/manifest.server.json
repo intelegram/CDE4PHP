@@ -1,5 +1,7 @@
 {
-    "context_path":"",
+    "context_path":"/cde-php-3.5/example",
+    "welcome_page":"/cde-php-3.5/example/api/root/main/index",
+    "locale":"th-TH",
     "context": [
         {
             "contextName": "default",
@@ -8,10 +10,20 @@
                 {"name": "driver","value": "pdo_mysql"},
                 {"name": "host","value": "127.0.0.1"},
                 {"name": "port","value": "3306"},
-                {"name": "database","value": "testdb"},
+                {"name": "dbname","value": "testdb"},
                 {"name": "user","value": "root"},
                 {"name": "password","value": "00000"}
             ]
         }
-    ]
+    ],
+    "oauth":{
+        "provider":"\\apps\\common\\AuthClient",
+        "propertys": [
+                {"name": "OAUTH2_CLIENT_ID","value": "123456"},
+                {"name": "OAUTH2_CLIENT_SECRET","value": "123456"},
+                {"name": "OAUTH2_ACCESS_KEY","value": "code"},
+                {"name": "OAUTH2_AUTH_URL","value": "http://localhost/cde-php-3.5/example/api/oauth/authen/authorization"},
+                {"name": "OAUTH2_TOKEN_URI","value":"http://localhost/cde-php-3.5/example/api/oauth/authen/authenticate"}
+       ] 
+    }
 }

@@ -106,4 +106,8 @@ class HelloService extends CServiceBase implements IHelloService {
         return $view; 
     }
 
+
+    
+    
+
 }
