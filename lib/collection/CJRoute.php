@@ -20,5 +20,6 @@ class CJRoute {
     
     public $authen;
     public $resource;
+    
 }
 ?>

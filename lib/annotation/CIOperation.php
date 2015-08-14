@@ -21,5 +21,6 @@ class CIOperation{
     public $sitemap=false;
     public $authen=false;
     public $resource="*";
+    
 }
 ?>
