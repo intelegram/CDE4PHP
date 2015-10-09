@@ -102,7 +102,7 @@ class HelloService extends CServiceBase implements IHelloService {
     }
 
     public function viewHello() {
-        $view = new CJView("hello", CJViewType::HTML_VIEW_ENGINE);
+        $view = new CJView("test.js", CJViewType::JS_ENCRYPTION);
         return $view; 
     }
 
