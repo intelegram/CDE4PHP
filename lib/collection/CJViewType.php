@@ -7,5 +7,6 @@ abstract class CJViewType {
     const JS = 2;
     const JS_STRING = 3;
     const HTML_VIEW_ENGINE = 4;
+    const JS_ENCRYPTION=5;
 
 }

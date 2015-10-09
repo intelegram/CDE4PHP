@@ -28,14 +28,15 @@ class CDataContext extends CDataContextImpl implements CIDataContext {
         return parent::getObject($object, $params, $MaxResults, $FirstResult);
     }
 
+    
     public function nativeQuery($object, $params = NULL, $MaxResults = NULL, $FirstResult = NULL) {
         return parent::nativeQuery($object, $params, $MaxResults, $FirstResult);
     }
     
-    public function pdoQuery($ql, $params = null,$className=null) {
-        return parent::pdoQuery($ql, $params,$className);
-    }
+  
 
+   
+    
     public function removeObject(&$object, $params = NULL) {
         return parent::removeObject($object, $params);
     }
@@ -46,6 +47,26 @@ class CDataContext extends CDataContextImpl implements CIDataContext {
 
     public function updateObject(&$object, $params = NULL) {
         return parent::updateObject($object, $params);
+    }
+    
+    
+    
+    
+    public function pdoExecute($sql, $params = null){
+        return parent::pdoExecute($sql,$params);
+    }
+    
+    public function pdoQuery($sql, $params = null, $className = null){
+        return parent::pdoQuery($sql, $params,$className);
+    }
+    public function pdoInsert($sql, $params = null){
+        return parent::pdoInsert($sql,$params);
+    }
+    public function pdoUpdate($sql, $params = null){
+        return parent::pdoUpdate($sql,$params);
+    }
+    public function pdoDelete($sql, $params = null){
+        return parent::pdoDelete($sql,$params);
     }
 
 }
